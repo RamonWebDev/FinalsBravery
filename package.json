@@ -1,0 +1,19 @@
+{
+  "name": "discordbotv2",
+  "version": "1.0.0",
+  "description": "Discord SR Bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Bot"
+  ],
+  "author": "Ramon",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/rest": "^1.0.1",
+    "discord.js": "^14.0.3",
+    "undici": "^5.8.0"
+  }
+}
