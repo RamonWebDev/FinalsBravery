@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const build = require('./build');
+const build = require('./build.js');
     module.exports = {
         data: new SlashCommandBuilder()
             .setName('brave')
