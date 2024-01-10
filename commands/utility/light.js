@@ -8,7 +8,7 @@ module.exports = {
 
     async execute(interaction) {
         // Get the 'light' category
-        const lightCategory = 'light';
+        const lightCategory = 'Light';
 
         // Get a random specialization from the 'light' category
         const specializations = build[lightCategory].Specializations;
