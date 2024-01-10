@@ -7,8 +7,8 @@ module.exports = {
         .setDescription('Get a random medium loadout'),
 
     async execute(interaction) {
-        // Get the 'light' category
-        const mediumCategory = 'medium';
+        // Get the 'medium' category
+        const mediumCategory = 'Medium';
 
         // Get a random specialization from the 'light' category
         const specializations = build[mediumCategory].Specializations;
@@ -26,7 +26,13 @@ module.exports = {
             randomGadgets.push(randomGadget);
         }
 
+        const loadoutMessage = `Your random loadout:
+        Category: ${mediumCategory}
+        Specialization: ${randomSpec}
+        Weapon: ${randomWeapon}
+        Gadgets: ${randomGadgets.join(', ')}`;
+
         // Send the random loadout as a reply
-        await interaction.reply(`Your random loadout:\nCategory: ${mediumCategory}\nSpecialization: ${randomSpec}\nWeapon: ${randomWeapon}\nGadgets: ${randomGadgets.join(', ')}`);
+        await interaction.reply(loadoutMessage);
     },
 };

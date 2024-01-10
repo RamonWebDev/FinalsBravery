@@ -4,11 +4,11 @@ const build = require('./build.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('heavy')
-        .setDescription('Get a random Light loadout'),
+        .setDescription('Get a random heavy loadout'),
 
     async execute(interaction) {
-        // Get the 'light' category
-        const heavyCategory = 'heavy';
+        // Get the 'heavy' category
+        const heavyCategory = 'Heavy';
 
         // Get a random specialization from the 'light' category
         const specializations = build[heavyCategory].Specializations;
@@ -26,7 +26,14 @@ module.exports = {
             randomGadgets.push(randomGadget);
         }
 
+
+        const loadoutMessage = `Your random loadout:
+        Category: ${heavyCategory}
+        Specialization: ${randomSpec}
+        Weapon: ${randomWeapon}
+        Gadgets: ${randomGadgets.join(', ')}`;
+
         // Send the random loadout as a reply
-        await interaction.reply(`Your random loadout:\nCategory: ${heavyCategory}\nSpecialization: ${randomSpec}\nWeapon: ${randomWeapon}\nGadgets: ${randomGadgets.join(', ')}`);
+        await interaction.reply(loadoutMessage);
     },
 };
