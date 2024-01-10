@@ -25,8 +25,14 @@ const build = require('./build.js');
                 const randomGadget = gadgets[Math.floor(Math.random() * gadgets.length)];
                 randomGadgets.push(randomGadget);
             }
+            //way to keep message simpler
+            const loadoutMessage = `Your random loadout:
+                Category: ${randomCategory}
+                Specialization: ${randomSpec}
+                Weapon: ${randomWeapon}
+                Gadgets: ${randomGadgets.join(', ')}`;
     
             // Send the random loadout as a reply
-            await interaction.reply(`Your random loadout:\nCategory: ${randomCategory}\nSpecialization: ${randomSpec}\nWeapon: ${randomWeapon}\nGadgets: ${randomGadgets.join(', ')}`);
+            await interaction.reply(loadoutMessage);
         },
     };
