@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const build = require('./build.js');
+const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -25,13 +26,17 @@ module.exports = {
             const randomGadget = gadgets[Math.floor(Math.random() * gadgets.length)];
             randomGadgets.push(randomGadget);
         }
-        const loadoutMessage = `Your random loadout:
-        Category: ${lightCategory}
-        Specialization: ${randomSpec}
-        Weapon: ${randomWeapon}
-        Gadgets: ${randomGadgets.join(', ')}`;
-
+        
+        const exampleEmbed = new EmbedBuilder()
+	        .setColor(0x0099FF)
+            .setTitle('Your Random Loadout')
+            .addFields(
+                {name: 'Category:', value: `${lightCategory}`},
+                {name: 'Specialization:', value: `${randomSpec}`},
+                {name: 'Weapon:', value: `${randomWeapon}`},
+                {name: 'Gadgets:', value: `${randomGadgets.join(', ')}`}
+            )
         // Send the random loadout as a reply
-        await interaction.reply(loadoutMessage);
+        await interaction.reply({embeds: [exampleEmbed]});
     },
 };
